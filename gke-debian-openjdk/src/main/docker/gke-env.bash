@@ -13,15 +13,6 @@ if [[ -n "$DBG_ENABLE" ]]; then
   fi
 fi
 
-PROF_AGENT=
-if [[ -n "${CPROF_ENABLE}" ]]; then
-  if [[ "$GAE_PARTITION" = "dev" ]]; then
-    PROF_AGENT=
-  else
-    PROF_AGENT="$( /opt/cprof/format-env-appengine-vm.sh )"
-  fi
-fi
-
 SET_TMP=
 if [[ -n "${TMPDIR}" ]]; then
   SET_TMP="-Djava.io.tmpdir=$TMPDIR"
